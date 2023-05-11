@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Inventaris Barang</title>
+</head>
+<body>
+  <h1>Inventaris Barang</h1>
+
+  <form id="form-barang">
+    <label for="nama-barang">Nama Barang:</label>
+    <input type="text" id="nama-barang" name="nama-barang" required><br>
+
+    <label for="jumlah-barang">Jumlah Barang:</label>
+    <input type="number" id="jumlah-barang" name="jumlah-barang" required><br>
+
+    <input type="submit" value="Tambah Barang">
+  </form>
+
+  <h2>Daftar Barang:</h2>
+  <ul id="daftar-barang">
+    <!-- Daftar barang akan ditampilkan di sini -->
+  </ul>
+
+  <script>
+    // Mengambil elemen-elemen yang diperlukan
+    const form = document.getElementById('form-barang');
+    const daftarBarang = document.getElementById('daftar-barang');
+
+    // Menangani pengiriman formulir
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Mencegah pengiriman formulir
+
+      // Mendapatkan nilai dari input
+      const namaBarang = document.getElementById('nama-barang').value;
+      const jumlahBarang = document.getElementById('jumlah-barang').value;
+
+      // Membuat elemen <li> baru untuk menampilkan barang
+      const listItem = document.createElement('li');
+      listItem.textContent = `Nama Barang: ${namaBarang}, Jumlah Barang: ${jumlahBarang}`;
+
+      // Menambahkan elemen <li> ke dalam daftar barang
+      daftarBarang.appendChild(listItem);
+
+      // Mengosongkan nilai input
+      document.getElementById('nama-barang').value = '';
+      document.getElementById('jumlah-barang').value = '';
+    });
+  </script>
+</body>
+</html>
+
+
+
